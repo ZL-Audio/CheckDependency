@@ -9,7 +9,7 @@ for dp, dn, filenames in os.walk('./'):
                 print(file.read())
         if os.path.splitext(f)[1] == '.so':
             try:
-                result = subprocess.run(['ldd', f], capture_output = True, text = True)
+                result = subprocess.run(['ldd', os.path.join(dp, f)], capture_output = True, text = True)
                 print(result)
                 print(result.stdout)
                 print(result.stderr)
